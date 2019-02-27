@@ -1,0 +1,62 @@
+[gd_resource type="TileSet" load_steps=7 format=2]
+
+[ext_resource path="res://asset/shader/Black.material" type="Material" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://asset/shader/White.material" type="Material" id=3]
+
+[sub_resource type="Shader" id=1]
+
+code = "shader_type canvas_item;
+
+void fragment() {
+	COLOR.rgb = vec3(.5);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = SubResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[resource]
+
+0/name = "Black"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/material = ExtResource( 1 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/is_autotile = false
+0/occluder_offset = Vector2( 32, 32 )
+0/navigation_offset = Vector2( 32, 32 )
+0/shapes = [  ]
+1/name = "White"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/material = ExtResource( 3 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/is_autotile = false
+1/occluder_offset = Vector2( 32, 32 )
+1/navigation_offset = Vector2( 32, 32 )
+1/shapes = [  ]
+2/name = "Solid"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/material = SubResource( 2 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 64, 64 )
+2/is_autotile = false
+2/occluder_offset = Vector2( 32, 32 )
+2/navigation_offset = Vector2( 32, 32 )
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 32, 32 )
+} ]
+

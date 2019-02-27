@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=7]
+
+code = "shader_type canvas_item;
+
+void fragment() {
+	COLOR.rgb = vec3(.5);
+}"
+
+[sub_resource type="ShaderMaterial" id=8]
+
+render_priority = 0
+shader = SubResource( 7 )
+
+[sub_resource type="Shader" id=10]
+
+code = "shader_type canvas_item;
+
+void fragment() {
+	COLOR.rbg = vec3(.5);
+}"
+
+[sub_resource type="ShaderMaterial" id=11]
+
+render_priority = 0
+shader = SubResource( 10 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[node name="Solid" type="Sprite"]
+
+material = SubResource( 8 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Material" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
+
+material = SubResource( 11 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Material" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+shape = SubResource( 9 )
+
+

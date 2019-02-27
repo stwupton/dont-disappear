@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/run and jump0012.png-db8b9a0980d1b37d707857cf956a6dff.stex"
+
+[deps]
+
+source_file="res://asset/art/run and jump0012.png"
+source_md5="1be1d87bd41344cc369eb07a8c6b18a3"
+
+dest_files=[ "res://.import/run and jump0012.png-db8b9a0980d1b37d707857cf956a6dff.stex" ]
+dest_md5="81e77e0f7eac45331ae7880ce2c07116"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

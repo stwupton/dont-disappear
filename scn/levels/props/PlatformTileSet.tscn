@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scn/levels/props/SolidPlatform.tscn" type="PackedScene" id=1]
+
+[node name="PlatformTileSet" type="Node2D" index="0"]
+
+[node name="SolidPlatform" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 70, 20 )
+
+

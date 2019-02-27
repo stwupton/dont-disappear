@@ -1,0 +1,133 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://scn/Player.gd" type="Script" id=1]
+[ext_resource path="res://asset/art/run0001.png" type="Texture" id=2]
+[ext_resource path="res://asset/art/run and jump0012.png" type="Texture" id=3]
+[ext_resource path="res://asset/art/run and jump0013.png" type="Texture" id=4]
+[ext_resource path="res://asset/art/run and jump0014.png" type="Texture" id=5]
+[ext_resource path="res://asset/art/run and jump0015.png" type="Texture" id=6]
+[ext_resource path="res://asset/art/run and jump0016.png" type="Texture" id=7]
+[ext_resource path="res://asset/art/run and jump0017.png" type="Texture" id=8]
+[ext_resource path="res://asset/art/run and jump0018.png" type="Texture" id=9]
+[ext_resource path="res://asset/art/run0002.png" type="Texture" id=10]
+[ext_resource path="res://asset/art/run0003.png" type="Texture" id=11]
+[ext_resource path="res://asset/art/run0004.png" type="Texture" id=12]
+[ext_resource path="res://asset/art/run0005.png" type="Texture" id=13]
+[ext_resource path="res://asset/art/run0006.png" type="Texture" id=14]
+[ext_resource path="res://asset/art/run0007.png" type="Texture" id=15]
+[ext_resource path="res://asset/art/run0008.png" type="Texture" id=16]
+[ext_resource path="res://asset/art/run0009.png" type="Texture" id=17]
+[ext_resource path="res://asset/art/run0010.png" type="Texture" id=18]
+[ext_resource path="res://asset/art/run and jump0019.png" type="Texture" id=19]
+[ext_resource path="res://asset/art/run and jump0020.png" type="Texture" id=20]
+[ext_resource path="res://asset/art/run and jump0021.png" type="Texture" id=21]
+[ext_resource path="res://asset/art/run and jump0022.png" type="Texture" id=22]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 14.8597
+height = 53.5585
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "jump_up",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "run",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "fall_down",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 18.8344
+height = 46.165
+
+[node name="Player" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.01
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material", "collision" ]
+movement_speed = 400
+jump_force = 600
+gravity = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 0, 2 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+material = SubResource( 2 )
+position = Vector2( 1.46301, -26.2412 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+animation = "idle"
+playing = true
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="SubmergeCheck" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubmergeCheck" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+
